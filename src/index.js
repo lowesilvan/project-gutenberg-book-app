@@ -1,10 +1,13 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { ChakraProvider } from "@chakra-ui/react";
 import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './index.css';
+import theme from "./theme/theme";
+import { BrowserRouter } from "react-router-dom";
+import { ColorModeScript } from "@chakra-ui/color-mode";
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -12,7 +15,12 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ChakraProvider theme={theme}>
+        <BrowserRouter>
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+          <App />
+        </BrowserRouter>
+      </ChakraProvider>
     </Provider>
   </React.StrictMode>
 );
