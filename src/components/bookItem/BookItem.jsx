@@ -115,6 +115,7 @@ export default function BookItem({ book, setSearchInputValue }) {
             _hover={{ cursor: "pointer" }}
             as={isFavourite ? MdFavorite : MdFavoriteBorder}
             color={isFavourite ? "red" : "black"}
+            marginX="1"
           />
         </Button>
       </VStack>

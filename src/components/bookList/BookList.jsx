@@ -4,7 +4,7 @@ import BookItem from "../bookItem/BookItem";
 import Pagination from "../pagination/Pagination";
 import SearchInput from "../searchInput/SearchInput";
 
-export default function BookList({ books, nextUrl, prevUrl, count}) {
+export default function BookList({ books, nextUrl, prevUrl, count }) {
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <Stack p={4} width="100%">
@@ -13,10 +13,10 @@ export default function BookList({ books, nextUrl, prevUrl, count}) {
         justifyContent="space-between"
         width="100%"
         borderBottomWidth="1px"
-        flexDirection={{base: "column", md: "row"}}
-        marginBottom={{base: "1rem", md: "0"}}
+        flexDirection={{ base: "column", md: "row" }}
+        marginBottom={{ base: "1rem", md: "0" }}
       >
-        <Box width="100%"> 
+        <Box width="100%">
           <SearchInput
             searchInputValue={searchTerm}
             setSearchInputValue={setSearchTerm}

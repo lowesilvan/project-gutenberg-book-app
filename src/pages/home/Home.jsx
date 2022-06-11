@@ -48,7 +48,7 @@ const Home = () => {
           <Pagination nextUrl={nextUrl} prevUrl={prevUrl} count={pageCount} />
         )}
       </div>
-      <small>All rights reserved</small>
+      <small style={{ display: "block"}}>All rights reserved</small>
     </Container>
   );
 };

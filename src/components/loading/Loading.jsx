@@ -4,7 +4,7 @@ import React from 'react'
 export const Loading = () => {
   return (
     <Box>
-      <Progress colorScheme="gray" size="sm" value={90}  />
+      <Progress colorScheme="gray" size="sm" value={80}  isIndeterminate/>
     </Box>
   );
 }

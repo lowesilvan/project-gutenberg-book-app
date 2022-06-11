@@ -17,39 +17,50 @@ export default function Pagination({ prevUrl, nextUrl, count }) {
   }, [url, dispatch])
 
   return (
-    <Flex textAlign="right" width="[100% 80%]" marginBottom={{base: "5px", md: "0"}} paddingLeft={{base: "0", md: "1rem"}}>
+    <Flex
+      textAlign="right"
+      width="[100% 80%]"
+      marginBottom={{ base: "5px", md: "0" }}
+      paddingLeft={{ base: "0", md: "1rem" }}
+    >
       {prevUrl && (
         <Button
+          p="3"
           onClick={() => {
             dispatch(getNext(prevUrl));
             setPageNum((p) => Number(p - 1));
           }}
         >
           <ChevronLeftIcon />
-          <Text>Previous</Text>
+          <small>Previous</small>
         </Button>
       )}
-      
+
       <Flex alignItems="center" margin="auto 1rem">
         <Text margin="auto 0.5rem">Page</Text>
         <Input
           w="20"
           value={pageNum}
+          type="number"
+          min="1"
           onChange={(e) => {
-            setPageNum(e.target.value);
+            if (e.target.value < 1) {
+              return null
+            } setPageNum(e.target.value);
           }}
         />
-        {count && <Text margin="auto 0.5rem">of {count}</Text>}
+        {count && <Text marginX="1" display={{base: "none", sm: "contents"}}>of {count}</Text>}
       </Flex>
 
       {nextUrl && (
         <Button
+          p="3"
           onClick={() => {
             dispatch(getNext(nextUrl));
             setPageNum((p) => Number(p + 1));
           }}
         >
-          <Text>Next</Text>
+          <small>Next</small>
           <ChevronRightIcon />
         </Button>
       )}

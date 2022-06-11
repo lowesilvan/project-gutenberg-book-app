@@ -14,11 +14,12 @@ const SearchInput = ({ searchInputValue, setSearchInputValue }) => {
     <Box width="[90% 100%]" maxW={500} marginY="1rem">
       <InputGroup size="md" borderRadius={10}>
         <Input
+          type="text"
           p={2}
           placeholder="Search book title, author or bookshelf..."
           value={searchInputValue}
           onChange={(e) => setSearchInputValue(e.target.value)}
-          _focus={{ borderColor: "gray.500"}}
+          _focus={{ borderColor: "gray.500" }}
         />
         <InputRightElement>
           <Button

@@ -1,46 +1,84 @@
-# Getting Started with Create React App and Redux
+# Gutenberg Books App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+A simple React app to read and search books from Project Gutenberg API. 
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+- [How to run app locally](#how-to-run-app-locally)
+  - [The task](#the-task)
+  - [Demo](#demo)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Gh-pages | Live Url: [https://lowesilvan.github.io/Portfolio/](https://lowesilvan.github.io/Portfolio/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to run app locally
 
-### `npm test`
+```
+git clone https://github.com/lowesilvan/project-gutenberg-book-app.git
+cd project-gutenberg-book-app
+npm install
+npm start
+```
+### The task
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+User-side requirements:
 
-### `npm run build`
+- Display a list of books
+- Let the user mark books as favorite
+- Let the user search and filter books - use the fields our API returns
+- Let the user actually read books
+- Try to make it pretty and user-friendly 😉 You can add any functionality you feel like.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Demo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Desktop view 
+<p text-align="center" justify-content="center">
+  <video controls autoplay>
+  <source src="./assets/desktop_demo.mp4" type="video/mp4">
+  <video>
+</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br />
+<hr />
 
-### `npm run eject`
+- Mobile View
+<p text-align="center" justify-content="center">
+  <video controls autoplay>
+  <source src="./assets/mobile_demo.mp4" type="video/mp4">
+  <video>
+</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Links
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Live Site URL: [Live Site](https://lowesilvan.github.io/project-gutenberg-book-app/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## My process
 
-## Learn More
+### Built with
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [ReactJs] (https://reactjs.org/)
+- [Chakra UI] (https://chakra-ui.com/)
+- [Redux Toolkit] (https://redux-toolkit.js.org/)
+- [CSS] (https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Redux Persist] (https://www.npmjs.com/package/redux-persist)
+- [React router dom v6] (https://reactrouter.com/docs/en/v6/getting-started/overview)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+### What I learned
+
+- redux-persist
+- Pagination
+
+## Author
+
+- LinkedIn - [@lowesilvan](https://www.linkedin.com/in/lowesilvan)
+

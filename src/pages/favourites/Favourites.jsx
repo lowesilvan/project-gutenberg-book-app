@@ -2,6 +2,7 @@ import { Box, Button, Container, Heading, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import BookItem from "../../components/bookItem/BookItem";
+import NoFavorites from "../../components/Error/NoFavorites";
 import { NavBar } from "../../components/header/navBar/NavBar";
 import { emptyFavBooks } from "../../redux/BooksReducer/bookSlice";
 
@@ -24,6 +25,9 @@ export default function Favourites() {
           favorites.map((book) => {
             return <BookItem key={book.id} book={book} />;
           })}
+          {
+            favorites.length < 1 && <NoFavorites />
+          }
       </Stack>
     </Container>
   );
