@@ -41,7 +41,11 @@ User-side requirements:
 
 - Desktop view 
 <p text-align="center" justify-content="center">
- ![](./assets/desktop_demo.mp4)
+
+
+https://user-images.githubusercontent.com/64000503/173181523-503dd67a-6064-4fdf-8d69-35cf8b9c0d03.mp4
+
+
 </p>
 
 <br />
@@ -49,7 +53,9 @@ User-side requirements:
 
 - Mobile View
 <p text-align="center" justify-content="center">
-![](./assets/mobile_demo.mp4)
+
+https://user-images.githubusercontent.com/64000503/173181567-eec17065-2613-4067-a22b-99ce847fc2af.mp4
+
 </p>
 
 
