@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.0544a10e.css","mappings":"AAAA,aAEI,WAAY,CADZ,kBAEJ","sources":["components/header/navBar/nav.css"],"sourcesContent":["nav a.active {\n    font-weight: bolder;\n    color: green;\n}"],"names":[],"sourceRoot":""}

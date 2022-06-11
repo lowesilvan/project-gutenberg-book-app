@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/project-gutenberg-book-app/static/css/main.0544a10e.css",
+    "main.js": "/project-gutenberg-book-app/static/js/main.f2775bf9.js",
+    "static/js/787.41817ffb.chunk.js": "/project-gutenberg-book-app/static/js/787.41817ffb.chunk.js",
+    "index.html": "/project-gutenberg-book-app/index.html",
+    "main.0544a10e.css.map": "/project-gutenberg-book-app/static/css/main.0544a10e.css.map",
+    "main.f2775bf9.js.map": "/project-gutenberg-book-app/static/js/main.f2775bf9.js.map",
+    "787.41817ffb.chunk.js.map": "/project-gutenberg-book-app/static/js/787.41817ffb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0544a10e.css",
+    "static/js/main.f2775bf9.js"
+  ]
+}
