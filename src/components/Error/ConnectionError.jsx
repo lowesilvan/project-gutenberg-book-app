@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function ConnectionError({ error }) {
     return (
-      <Box margin="auto" maxWidth="600px" borderRadius="5%">
+      <Box margin="1rem auto" maxWidth="600px" borderRadius="5%">
         <Alert
           status="warning"
           alignItems="center"

@@ -8,7 +8,7 @@ const initialState = {
   favorites: [],
 };
 
-// Get books with asyncthunk
+// Get books with thunk
 export const getBooks = createAsyncThunk(
   "library/getBooks",
   async (thunkAPI) => {
@@ -16,6 +16,26 @@ export const getBooks = createAsyncThunk(
     return fetch("https://gnikdroy.pythonanywhere.com/api/book/").then((res) =>
       res.json()
     );
+    // console.log("gets data from api");
+  }
+);
+
+// get next 0r previous page thunk
+export const getNext = createAsyncThunk(
+  "library/getBooks",
+  async (url, thunkAPI) => {
+    // console.log("in getbook thunk runs");
+    return fetch(url).then((res) => res.json());
+    // console.log("gets data from api");
+  }
+);
+
+// get specific book from input
+export const getPageNum = createAsyncThunk(
+  "library/getBooks",
+  async (url, thunkAPI) => {
+    // console.log("in getbooks thunk");
+    return fetch(url).then((res) => res.json());
     // console.log("gets data from api");
   }
 );
@@ -38,6 +58,10 @@ export const bookSlice = createSlice({
         favorites: [...state.favorites, { ...book, isFavourite }],
       };
     },
+    // clear favorite books
+    emptyFavBooks(state) {
+      return {...state, favorites: []}
+    }
   },
   extraReducers: {
     [getBooks.pending]: (state) => {
@@ -55,6 +79,6 @@ export const bookSlice = createSlice({
   },
 });
 
-export const { favBooks } = bookSlice.actions;
+export const { favBooks, searchQuery, emptyFavBooks } = bookSlice.actions;
 
 export default bookSlice.reducer;

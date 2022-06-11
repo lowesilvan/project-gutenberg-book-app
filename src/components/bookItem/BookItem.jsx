@@ -1,16 +1,29 @@
-import { Box, Button, Flex, Heading, VStack, Icon, Image, Tag, TagLabel, TagLeftIcon, Wrap, Text, HStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  VStack,
+  Icon,
+  Image,
+  Tag,
+  TagLabel,
+  Wrap,
+  Text,
+  HStack,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
-import { AddIcon } from "@chakra-ui/icons";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
-import ReadOutline from "../icons/ReadOutline"
+import ReadOutline from "../icons/ReadOutline";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { favBooks } from "../../redux/BooksReducer/bookSlice";
+import BookShelves from "./bookshelves/BookShelves";
 
-export default function BookItem({ book }) {
-  const dispatch = useDispatch()
-  const Navigate = useNavigate()
-  const [isFavourite, setIsFavourite] = useState(false)
+export default function BookItem({ book, setSearchInputValue }) {
+  const dispatch = useDispatch();
+  const Navigate = useNavigate();
+  const [isFavourite, setIsFavourite] = useState(false);
 
   // get cover img url
   const coverImg = book.resources.filter(
@@ -24,6 +37,7 @@ export default function BookItem({ book }) {
       align="center"
       justify="space-between"
       textAlign="left"
+      flexDirection={{ base: "column", md: "row" }}
     >
       <Flex spacing={1}>
         <Box minWidth={70} mr={6}>
@@ -33,7 +47,13 @@ export default function BookItem({ book }) {
         <Box>
           <Box>{book.agents.map((element) => element.person)}</Box>
 
-          <Heading size="md" my="2">
+          <Heading
+            size="md"
+            my="2"
+            _hover={{
+              textDecoration: "underline",
+            }}
+          >
             <Link to={`/reading/${book.title}`} state={book}>
               {book.title}
             </Link>
@@ -48,18 +68,24 @@ export default function BookItem({ book }) {
           <Box fontSize={12}>{book.downloads} downloads</Box>
 
           <Wrap mt={4} spacing={2}>
-            {book.bookshelves.map((element, index) => {
-              return (
-                <Tag key={index} variant="solid">
-                  <TagLeftIcon as={AddIcon} _hover={{ cursor: "pointer" }} />
-                  <TagLabel>{element}</TagLabel>
-                </Tag>
-              );
-            })}
+            {book.bookshelves &&
+              book.bookshelves.map((element, index) => {
+                return (
+                  <BookShelves
+                    key={index}
+                    element={element}
+                    setSearchInputValue={setSearchInputValue}
+                  />
+                );
+              })}
           </Wrap>
         </Box>
       </Flex>
-      <VStack direction="column" align="center" spacing="4">
+      <VStack
+        flexDirection={{ base: "row", md: "column" }}
+        alignItems="center"
+        marginY={{base: "1rem", md: "auto"}}
+      >
         <Button
           onClick={(e) => {
             Navigate(`/reading/${book.title}`, { state: book });
@@ -78,7 +104,7 @@ export default function BookItem({ book }) {
         <Button
           variant="ghost"
           onClick={() => {
-            dispatch(favBooks({book, isFavourite: !isFavourite}))
+            dispatch(favBooks({ book, isFavourite: !isFavourite }));
             setIsFavourite((p) => !p);
             // console.log("dispatch runs")
           }}

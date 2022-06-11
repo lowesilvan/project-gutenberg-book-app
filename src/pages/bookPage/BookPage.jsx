@@ -3,9 +3,9 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function BookPage() {
-  const location = useLocation()
-  const {title, resources} = location.state
-  const [value, setvalue] = useState("")
+  const location = useLocation();
+  const { title, resources } = location.state;
+  const [value, setvalue] = useState("");
 
   const FilterUri = useCallback(() => {
     const Uri = resources.filter((resource) => resource.uri.includes("h.htm"));
@@ -13,11 +13,10 @@ export default function BookPage() {
     setvalue(Uri[0].uri);
   }, [resources, setvalue]);
 
-    useEffect(() => {
-      FilterUri();
-    }, [FilterUri]);
+  useEffect(() => {
+    FilterUri();
+  }, [FilterUri]);
 
-  console.log(value)
   return (
     <Center w="full" h="100vh">
       <iframe
