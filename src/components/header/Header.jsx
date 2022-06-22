@@ -7,7 +7,7 @@ import {
   VStack,
   HStack,
 } from "@chakra-ui/react";
-import { NavBar } from "./navBar/NavBar";
+import { NavBar } from "../navBar/NavBar";
 
 export const Header = () => {
   return (

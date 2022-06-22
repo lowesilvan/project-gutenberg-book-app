@@ -12,18 +12,23 @@ import {
   Text,
   HStack,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import ReadOutline from "../icons/ReadOutline";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { favBooks } from "../../redux/BooksReducer/bookSlice";
-import BookShelves from "./bookshelves/BookShelves";
+import { AddIcon } from "@chakra-ui/icons";
+import BookShelves from "../bookshelves/BookShelves";
 
 export default function BookItem({ book, setSearchInputValue }) {
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   const [isFavourite, setIsFavourite] = useState(false);
+
+  useEffect(() => {
+    setIsFavourite(book.isFavourite);
+  }, [book.isFavourite]);
 
   // get cover img url
   const coverImg = book.resources.filter(
@@ -41,7 +46,7 @@ export default function BookItem({ book, setSearchInputValue }) {
     >
       <Flex spacing={1}>
         <Box minWidth={70} mr={6}>
-          {coverImg[0] && <Image alt={`${book.id}`} src={coverImg[0]?.uri} />}
+          {coverImg[0] && <Image alt={book.title} src={coverImg[0]?.uri} />}
         </Box>
 
         <Box>
@@ -75,6 +80,7 @@ export default function BookItem({ book, setSearchInputValue }) {
                     key={index}
                     element={element}
                     setSearchInputValue={setSearchInputValue}
+                    icon={AddIcon}
                   />
                 );
               })}
@@ -84,9 +90,13 @@ export default function BookItem({ book, setSearchInputValue }) {
       <VStack
         flexDirection={{ base: "row", md: "column" }}
         alignItems="center"
-        marginY={{base: "1rem", md: "auto"}}
+        marginY={{ base: "1rem", md: "auto" }}
       >
         <Button
+          colorScheme="teal"
+          bgGradient="linear(to-r, teal.400, green.400, green.600)"
+          color="white"
+          variant="solid"
           onClick={(e) => {
             Navigate(`/reading/${book.title}`, { state: book });
           }}
@@ -102,11 +112,10 @@ export default function BookItem({ book, setSearchInputValue }) {
         </Button>
 
         <Button
-          variant="ghost"
+          variant="solid"
           onClick={() => {
             dispatch(favBooks({ book, isFavourite: !isFavourite }));
             setIsFavourite((p) => !p);
-            // console.log("dispatch runs")
           }}
         >
           <Text>Favorites </Text>

@@ -5,8 +5,8 @@ import { Loading } from "../../components/loading/Loading";
 import ConnectionError from "../../components/Error/ConnectionError";
 import BookList from "../../components/bookList/BookList";
 import { Container } from "@chakra-ui/react";
-import Pagination from "../../components/pagination/Pagination";
 import { Header } from "../../components/header/Header";
+import FooterNote from "../../components/footerNote/FooterNote";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Home = () => {
     dispatch(getBooks());
   }, [dispatch]);
 
-  // previous/next link and page count
+  // previous/next link and page count props
   const nextUrl = books.next;
   const prevUrl = books.previous;
   const pageCount = books.count;
@@ -30,25 +30,16 @@ const Home = () => {
         <Header books={books.results} />
       </div>
       {loading && <Loading />}
-      {books && (
-        <div>
-          {books.results && (
-            <BookList
-              books={books}
-              nextUrl={nextUrl}
-              prevUrl={prevUrl}
-              count={pageCount}
-            />
-          )}
-          {error && <ConnectionError error={error} />}
-        </div>
+      {books.results && (
+        <BookList
+          books={books}
+          nextUrl={nextUrl}
+          prevUrl={prevUrl}
+          count={pageCount}
+        />
       )}
-      <div>
-        {books.results && (
-          <Pagination nextUrl={nextUrl} prevUrl={prevUrl} count={pageCount} />
-        )}
-      </div>
-      <small style={{ display: "block"}}>All rights reserved</small>
+      {error && <ConnectionError error={error} />}
+      <FooterNote />
     </Container>
   );
 };

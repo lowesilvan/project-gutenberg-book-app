@@ -16,12 +16,12 @@ export const NavBar = () => {
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
     >
       <NavLink to="/">
-        <Heading size="md" fontWeight="semibold" _hover={{ color: "gray.500" }}>
+        <Heading size="md" fontWeight="semibold" _hover={{ color: "green.500" }}>
           Home
         </Heading>
       </NavLink>
       <NavLink to="/favorites">
-        <Heading size="md" fontWeight="semibold" _hover={{ color: "gray.500" }}>
+        <Heading size="md" fontWeight="semibold" _hover={{ color: "green.500" }}>
           Favorites
         </Heading>
       </NavLink>

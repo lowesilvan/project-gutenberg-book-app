@@ -13,7 +13,6 @@ function App() {
         <Route path="/reading/:slug" element={<BookPage />} />
         <Route path="/favorites" element={<Favourites />} />
         <Route path="/*" element={<NotFound />} />
-
         <Route
           exact
           path="/project-gutenberg-book-app"

@@ -12,11 +12,21 @@ const initialState = {
 export const getBooks = createAsyncThunk(
   "library/getBooks",
   async (thunkAPI) => {
-    // console.log("in getbooks thunk");
+    // const controller = new AbortController();
+    // const response = await fetch(
+    //   "https://gnikdroy.pythonanywhere.com/api/book/k",
+    //   { signal: controller.signal }
+    // );
+    // if (!response.ok) {
+    //   const message = `An error has occured: ${response.status}`;
+    //   controller.abort();
+    //   throw new Error(message);
+    // }
+    // const books = await response.json();
+    // return books
     return fetch("https://gnikdroy.pythonanywhere.com/api/book/").then((res) =>
       res.json()
     );
-    // console.log("gets data from api");
   }
 );
 
@@ -24,9 +34,7 @@ export const getBooks = createAsyncThunk(
 export const getNext = createAsyncThunk(
   "library/getBooks",
   async (url, thunkAPI) => {
-    // console.log("in getbook thunk runs");
     return fetch(url).then((res) => res.json());
-    // console.log("gets data from api");
   }
 );
 
@@ -34,9 +42,7 @@ export const getNext = createAsyncThunk(
 export const getPageNum = createAsyncThunk(
   "library/getBooks",
   async (url, thunkAPI) => {
-    // console.log("in getbooks thunk");
     return fetch(url).then((res) => res.json());
-    // console.log("gets data from api");
   }
 );
 
@@ -60,8 +66,8 @@ export const bookSlice = createSlice({
     },
     // clear favorite books
     emptyFavBooks(state) {
-      return {...state, favorites: []}
-    }
+      return { ...state, favorites: [] };
+    },
   },
   extraReducers: {
     [getBooks.pending]: (state) => {
@@ -73,7 +79,6 @@ export const bookSlice = createSlice({
     },
     [getBooks.rejected]: (state, { payload }) => {
       state.loading = false;
-      console.log("Error Message ", payload);
       state.error = "ERR_INTERNET_DISCONNECTED";
     },
   },
