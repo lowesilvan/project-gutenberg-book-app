@@ -17,7 +17,7 @@ A simple React app to read and search books from Project Gutenberg API.
 
 ## Overview
 
-Gh-pages | Live Url: [https://lowesilvan.github.io/Portfolio/](https://lowesilvan.github.io/Portfolio/)
+Gh-pages | Live Url: [https://lowesilvan.github.io/Portfolio/](https://lowesilvan.github.io/project-gutenberg-book-app/)
 
 ## How to run app locally
 
@@ -41,9 +41,11 @@ User-side requirements:
 
 - Desktop view 
 <p text-align="center" justify-content="center">
-  <video controls autoplay>
-  <source src="./assets/desktop_demo.mp4" type="video/mp4">
-  <video>
+
+
+https://user-images.githubusercontent.com/64000503/173181523-503dd67a-6064-4fdf-8d69-35cf8b9c0d03.mp4
+
+
 </p>
 
 <br />
@@ -51,9 +53,9 @@ User-side requirements:
 
 - Mobile View
 <p text-align="center" justify-content="center">
-  <video controls autoplay>
-  <source src="./assets/mobile_demo.mp4" type="video/mp4">
-  <video>
+
+https://user-images.githubusercontent.com/64000503/173181567-eec17065-2613-4067-a22b-99ce847fc2af.mp4
+
 </p>
 
 
